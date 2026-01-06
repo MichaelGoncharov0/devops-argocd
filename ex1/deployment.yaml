@@ -2,7 +2,7 @@ apiVersion: v1
 kind: ConfigMap
 metadata:
   name: my-website-config
-  namespace: student-apps
+  namespace: nginx-site
 data:
   index.html: |
     <!DOCTYPE html>
@@ -18,9 +18,9 @@ apiVersion: v1
 kind: Service
 metadata:
   name: argo-service
-  namespace: student-apps
+  namespace: nginx-site
 spec:
-  type: LoadBalancer
+  type: Loadbalancer
   selector:
     app: nginx-site
   ports:
@@ -32,7 +32,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: nginx-site
-  namespace: student-apps
+  namespace: nginx-site
 spec:
   replicas: 1
   selector:
