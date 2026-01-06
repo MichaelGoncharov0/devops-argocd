@@ -20,7 +20,7 @@ metadata:
   name: argo-service
   namespace: nginx-site
 spec:
-  type: Loadbalancer
+  type: LoadBalancer
   selector:
     app: nginx-site
   ports:
